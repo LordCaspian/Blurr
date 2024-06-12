@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag N Drop</title>
+    <style>
+        body, .container { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f3f4f6; }
+        .container { width: 1000px; justify-content: space-between; }
+        .empty, .fill { width: 200px; height: 200px; border-radius: 5px; }
+        .empty { background: #e2e8f0; border: 3px solid #cbd5e0; }
+        .fill { background: #4299e1; width: 150px; height: 150px; cursor: pointer; }
+        /*.hold { border: 4px dashed #2b6cb0; }*/
+        /*.invisible { display: none; }*/
+        /*.hovered { background: #a0aec0; }*/
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+</div>
+<div class="fill" draggable="true"></div>
+
+<script>
+    const fill = document.querySelector('.fill');
+    const empties = document.querySelectorAll('.empty');
+
+    fill.addEventListener('dragstart', () => {
+        fill.classList.add('hold');
+        setTimeout(() => fill.classList.add('invisible'), 0);
+    });
+
+    fill.addEventListener('dragend', () => fill.className = 'fill');
+
+    empties.forEach(empty => {
+        empty.addEventListener('dragover', e => e.preventDefault());
+        empty.addEventListener('dragenter', e => {
+            e.preventDefault();
+            empty.classList.add('hovered');
+        });
+        empty.addEventListener('dragleave', () => empty.className = 'empty');
+        empty.addEventListener('drop', () => {
+            empty.className = 'empty';
+            empty.appendChild(fill);
+        });
+    });
+</script>
+</body>
+</html>
