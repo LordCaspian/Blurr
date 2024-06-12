@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f7f7f7;
+}
+
+.faq-container {
+    width: 600px;
+}
+
+.faq {
+    background: #fff;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq.active .faq-text {
+    max-height: 100px;
+    margin: 20px 0 0;
+    opacity: 1;
+    padding: 20px 0 0;
+}
+
+.faq-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.faq-text {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.faq-toggle {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.faq-toggle i {
+    font-size: 20px;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.faq.active .faq-toggle i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.faq.active .faq-toggle i.fa-times-circle-o {
+    display: none;
+}

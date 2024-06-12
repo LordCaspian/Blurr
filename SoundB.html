@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Board</title>
+</head>
+<body>
+<div class="container">
+    <button onclick="playSound('sound1.mp3')">Sound 1</button>
+    <button onclick="playSound('sound2.mp3')">Sound 2</button>
+    <!-- Add more buttons for additional sounds -->
+</div>
+
+<script>
+    function playSound(sound) {
+        new Audio(sound).play();
+    }
+</script>
+</body>
+</html>
